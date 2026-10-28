@@ -16,6 +16,9 @@ docs/              <- selve nettsiden (dette lastes opp)
   data/retter.js   <- generert, ikke rediger
 last-opp.sh        <- bygger og laster opp til webhotellet
 .env.eksempel      <- mal for FTP-innstillingene
+skript/lag_rett.py <- lager en ny rett ut fra et forslag (bruker Mistral)
+skript/endre_rett.py <- endrer en rett som allerede finnes (bruker Mistral)
+.github/           <- forslagsskjemaene og de automatiske arbeidsflytene
 ```
 
 ## Endre eller legge til en rett
@@ -109,7 +112,7 @@ Har webhotellet SSH, kan du bruke `rsync -av --delete docs/ bruker@vness.no:/www
 
 Koden ligger på <https://github.com/torbjone/vness-middager>.
 
-Hver gang du har endret noe:
+Hver gang noe er endret:
 
 ```bash
 python3 bygg.py
@@ -117,6 +120,103 @@ git add -A
 git commit -m "Ny oppskrift"
 git push
 ```
+
+## Foreslå en ny rett (automatisk flyt)
+
+Andre kan foreslå middager uten å kunne noe om kode:
+
+1. De går til <https://github.com/torbjone/vness_middager/issues/new/choose> og
+   fyller ut **Foreslå en ny rett** (navn, kategori, anledning, sesong og
+   eventuelle ønsker). De trenger ikke skrive oppskriften selv.
+2. Repo-eier (Torbjørn) får varsel på mail fra GitHub med en gang forslaget kommer inn.
+3. Forslaget kan da godkjennes ved at repo-eier svare på issuen med kommentaren:
+
+   ```
+   /godkjenn
+   ```
+
+4. Da starter `.github/workflows/ny-rett.yml`, som:
+   - lar Mistral skrive oppskriften i husets stil (`skript/lag_rett.py`),
+   - lagrer den som `retter/<slug>.md`,
+   - kjører `python3 bygg.py`,
+   - committer og laster opp `docs/` til nettsiden via FTP,
+   - kommenterer og lukker issuen når retten er ute.
+
+Bare kommentarer fra eier eller en collaborator starter flyten, så ingen
+kan publisere noe selv. Husk å kjøre `git pull` etterpå, siden roboten committer
+rett på `main`. Går noe galt, legger roboten igjen en kommentar med lenke til loggen.
+
+## Foreslå en endring i en rett som allerede ligger ute
+
+Samme flyt, men for retter som finnes fra før:
+
+1. De fyller ut **Foreslå en endring i en rett** på samme
+   <https://github.com/torbjone/vness_middager/issues/new/choose>: hvilken rett
+   det gjelder, hva som skal endres, og eventuelt ny kategori, anledning eller
+   sesong (velg `behold` på det som skal stå som før).
+2. Repo-eier får varsel på mail og godkjenner med samme kommentar: `/godkjenn`.
+3. Da starter `.github/workflows/endre-rett.yml`, som kjører
+   `skript/endre_rett.py`. Skriptet finner riktig fil i `retter/`, sender den
+   eksisterende oppskriften og det ønskede til Mistral, og skriver filen på nytt
+   i husets stil. Deretter bygges siden, endringen committes og lastes opp.
+
+To ting er med vilje låst: **filnavnet endres aldri**, og **navnet på retten
+beholdes**, slik at ukemenyen og eventuelle lenker fortsetter å virke. Skal
+retten hete noe annet, er det enklest å rette `navn:` i filen selv etterpå.
+
+Retten kjennes igjen på navnet slik det står på siden, men det holder ofte med
+en del av navnet (`fiskegrateng`) eller filnavnet. Treffer det flere retter,
+stopper roboten og sier fra i en kommentar i stedet for å gjette.
+
+Siden hele oppskriften skrives om, er det lurt å lese gjennom resultatet
+etterpå – enten i committen eller på siden.
+
+### Engangsoppsett (gjelder begge flytene)
+
+Legg inn disse under **Settings → Secrets and variables → Actions → New repository secret**:
+
+| Secret | Verdi |
+| --- | --- |
+| `MISTRAL_API_KEY` | API-nøkkel fra <https://console.mistral.ai> |
+| `FTP_VERT` | Samme som i `.env` |
+| `FTP_BRUKER` | Samme som i `.env` |
+| `FTP_PASSORD` | Samme som i `.env` |
+| `FJERNMAPPE` | Valgfri. Standard er `/www/middager` |
+
+Sjekk også at **Settings → Actions → General → Workflow permissions** står på
+*Read and write permissions*, ellers får ikke roboten lov til å committe.
+
+Vil du ha varsel på en annen adresse enn GitHub-kontoen din, setter du den opp
+under <https://github.com/settings/notifications> (eller legger adressen til som
+*backup email* og slår på varsling for den).
+
+### Lage en rett manuelt med Mistral
+
+Du kan bruke samme skript lokalt, uten å gå veien om en issue:
+
+```bash
+export MISTRAL_API_KEY=...
+python3 skript/lag_rett.py --navn "Fiskesuppe" --kategori fisk \
+  --anledning "hverdag og helg" --sesong "host og vinter" \
+  --onsker "Gjerne med rotgrønnsaker"
+python3 bygg.py
+```
+
+Les alltid gjennom resultatet før du laster opp – språkmodeller finner av og til
+på mengder som ikke stemmer. Du kan bytte modell med `MISTRAL_MODELL`.
+
+### Endre en rett manuelt med Mistral
+
+```bash
+export MISTRAL_API_KEY=...
+python3 skript/endre_rett.py --rett fiskegrateng \
+  --endring "Bytt brokkoli med blomkål, og legg revet ost på toppen"
+python3 bygg.py
+```
+
+Valgfritt kan du også sende `--kategori`, `--anledning` og `--sesong`. Standarden
+er `behold`, altså at feltet står som før. Vil du heller gjøre endringen for
+hånd, åpner du bare filen i `retter/` som beskrevet lenger opp.
 
 ## Slik velges ukemenyen
 

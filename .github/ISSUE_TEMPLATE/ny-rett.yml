@@ -1,0 +1,68 @@
+name: Foreslå en ny rett
+description: Foreslå en middag du synes bør være med på vness.no/middager.
+title: "Ny rett: "
+labels: ["ny-rett"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Takk for forslaget! Fyll ut feltene under. Du trenger ikke skrive
+        oppskriften selv – den blir skrevet automatisk hvis forslaget godkjennes.
+
+  - type: input
+    id: navn
+    attributes:
+      label: Hva heter retten?
+      placeholder: Fiskegrateng med brokkoli
+    validations:
+      required: true
+
+  - type: dropdown
+    id: kategori
+    attributes:
+      label: Kategori
+      options:
+        - fisk
+        - kjott
+        - kylling
+        - vegetar
+    validations:
+      required: true
+
+  - type: dropdown
+    id: anledning
+    attributes:
+      label: Når passer retten?
+      description: Hverdag = mandag–torsdag + søndag. Helg = fredag og lørdag.
+      options:
+        - hverdag
+        - helg
+        - hverdag og helg
+    validations:
+      required: true
+
+  - type: dropdown
+    id: sesong
+    attributes:
+      label: Sesong
+      options:
+        - hele-aret
+        - vinter
+        - var
+        - sommer
+        - host
+        - host og vinter
+        - var og sommer
+    validations:
+      required: true
+
+  - type: textarea
+    id: onsker
+    attributes:
+      label: Ønsker eller notater
+      description: >-
+        Noe som må være med? Allergier, favorittilbehør, omtrentlig tid,
+        eller en lenke til en oppskrift du liker.
+      placeholder: Må være med revet ost på toppen. Gjerne ferdig på en halvtime.
+    validations:
+      required: false

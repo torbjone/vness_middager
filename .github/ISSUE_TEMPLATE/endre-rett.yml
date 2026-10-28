@@ -1,0 +1,77 @@
+name: Foreslå en endring i en rett
+description: Noe som bør rettes eller forbedres i en rett som allerede ligger ute?
+title: "Endre rett: "
+labels: ["endre-rett"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Takk! Si hvilken rett det gjelder og hva som bør endres, så skrives
+        oppskriften om automatisk hvis forslaget godkjennes.
+
+  - type: input
+    id: rett
+    attributes:
+      label: Hvilken rett gjelder det?
+      description: Skriv navnet slik det står på <https://vness.no/middager>.
+      placeholder: Fiskegrateng med potet, gulrot og brokkoli
+    validations:
+      required: true
+
+  - type: textarea
+    id: endring
+    attributes:
+      label: Hva skal endres?
+      description: >-
+        Beskriv endringen så tydelig du klarer. Skal noe byttes ut, legges til,
+        fjernes, eller forklares bedre?
+      placeholder: Bytt brokkoli med blomkål, og legg til litt revet ost på toppen.
+    validations:
+      required: true
+
+  - type: dropdown
+    id: kategori
+    attributes:
+      label: Kategori
+      description: Velg «behold» hvis kategorien ikke skal endres.
+      options:
+        - behold
+        - fisk
+        - kjott
+        - kylling
+        - vegetar
+      default: 0
+    validations:
+      required: true
+
+  - type: dropdown
+    id: anledning
+    attributes:
+      label: Når passer retten?
+      description: Hverdag = mandag–torsdag + søndag. Helg = fredag og lørdag.
+      options:
+        - behold
+        - hverdag
+        - helg
+        - hverdag og helg
+      default: 0
+    validations:
+      required: true
+
+  - type: dropdown
+    id: sesong
+    attributes:
+      label: Sesong
+      description: Velg «behold» hvis sesongen ikke skal endres.
+      options:
+        - behold
+        - hele-aret
+        - vinter
+        - var
+        - sommer
+        - host
+        - host og vinter
+        - var og sommer
+      default: 0
+    validations:
+      required: true
