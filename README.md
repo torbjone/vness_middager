@@ -82,7 +82,7 @@ python3 -m http.server -d docs 8000
 
 Første gang:
 
-1. Logg inn på domene.no → Mine sider → finn FTP-brukeren for vness.no.
+1. Logg inn på domene.no → Mine sider → finn FTP-brukeren din.
 2. `cp .env.eksempel .env` og fyll inn vert, brukernavn, passord og riktig mappe
    (ofte `/www/middager`, noen ganger `/public_html/middager`).
 3. Installer lftp én gang: `sudo apt install lftp`.
