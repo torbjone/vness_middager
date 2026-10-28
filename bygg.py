@@ -79,14 +79,14 @@ def md_til_html(md: str) -> str:
                 lukk()
                 ut.append("<ul>")
                 liste = "ul"
-            ut.append(f"<li>{innmat(re.sub(r'^[-*]\s+', '', stripped))}</li>")
+            ut.append("<li>" + innmat(re.sub(r"^[-*]\s+", "", stripped)) + "</li>")
             continue
         if re.match(r"^\d+[.)]\s+", stripped):
             if liste != "ol":
                 lukk()
                 ut.append("<ol>")
                 liste = "ol"
-            ut.append(f"<li>{innmat(re.sub(r'^\d+[.)]\s+', '', stripped))}</li>")
+            ut.append("<li>" + innmat(re.sub(r"^\d+[.)]\s+", "", stripped)) + "</li>")
             continue
         lukk()
         ut.append(f"<p>{innmat(stripped)}</p>")
