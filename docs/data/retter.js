@@ -189,6 +189,21 @@ window.RETTER = [
   "oppskrift": "<h3>Ingredienser</h3>\n<ul>\n<li>5 nakkekoteletter (ca. 800 g)</li>\n<li>1 ss olje</li>\n<li>1 ts salt</li>\n<li>1/2 ts pepper</li>\n<li>1 ts paprikakrydder</li>\n<li>4 dl ris</li>\n<li>8 dl vann</li>\n<li>1 hodesalat</li>\n<li>1 agurk</li>\n<li>300 g cherrytomater</li>\n<li>2 ss olivenolje</li>\n<li>1 ss sitronsaft</li>\n</ul>\n<h3>Slik gjør du det</h3>\n<ol>\n<li>Ha 4 dl ris og 8 dl vann i en kjele med lokk. Kok opp og skru ned til lav varme.</li>\n<li>La risen koke under lokk i 12 minutter. Ikke løft lokket.</li>\n<li>Krydre kotelettene med salt, pepper og paprikakrydder på begge sider.</li>\n<li>Varm 1 ss olje i stekepannen på middels høy varme.</li>\n<li>Stek kotelettene 4–5 minutter på hver side. Kjernetemperaturen skal være 70 °C.</li>\n<li>Legg kotelettene på en tallerken og la dem hvile i 3 minutter.</li>\n<li>Riv salaten i biter og skjær agurk og tomat i biter. Legg alt i en bolle.</li>\n<li>Bland olivenolje og sitronsaft og rør inn i salaten.</li>\n<li>Server kotelettene med ris og salat.</li>\n</ol>\n<h3>Tips</h3>\n<ul>\n<li>Å la kjøttet hvile gjør det saftigere.</li>\n<li>Bruk gjerne kjøttermometer.</li>\n</ul>"
  },
  {
+  "slug": "pai",
+  "navn": "Pai",
+  "kategori": "kjott",
+  "anledning": [
+   "hverdag"
+  ],
+  "sesong": [
+   "hele-aret"
+  ],
+  "tid": "40 min",
+  "porsjoner": "5",
+  "beskrivelse": "En enkel kjøttpai med ferdig bunn og frisk salat til.",
+  "oppskrift": "<h3>Ingredienser</h3>\n<ul>\n<li>1 ferdig paideigbunn (ca. 24 cm)</li>\n<li>500 g kjøttdeig</li>\n<li>1 løk</li>\n<li>1 ss olje</li>\n<li>1 ts salt</li>\n<li>0,5 ts pepper</li>\n<li>1 ts tørket timian</li>\n<li>2 dl kremfløte</li>\n<li>1 egg</li>\n<li>1 pose blandet salat (100 g)</li>\n<li>1 ss dressing</li>\n</ul>\n<h3>Slik gjør du det</h3>\n<ol>\n<li>Vask hendene.</li>\n<li>Sett ovnen på 200 grader.</li>\n<li>Skrell og hakk løken.</li>\n<li>Varm olje i en stekepanne.</li>\n<li>Stek løken på middels varme i 2 minutter.</li>\n<li>Tilsett kjøttdeigen og stek til den er gjennomstekt.</li>\n<li>Krydre med salt, pepper og timian.</li>\n<li>Ta pannen av varmen og rør inn kremfløten.</li>\n<li>Legg paideigbunnen i en paiform.</li>\n<li>Fordel kjøttfyllet jevnt i bunnen.</li>\n<li>Pisk egget lett og hell over fyllet.</li>\n<li>Stek paien i ovnen i 25 minutter.</li>\n<li>Ta paien ut av ovnen og la den avkjøles i 5 minutter.</li>\n<li>Legg salaten i en bolle.</li>\n<li>Hell dressingen over salaten og bland.</li>\n<li>Server paien med salat ved siden av.</li>\n</ol>\n<h3>Tips</h3>\n<ul>\n<li>La paien hvile litt før servering, så blir den lettere å skjære.</li>\n</ul>"
+ },
+ {
   "slug": "pizza",
   "navn": "Pizza",
   "kategori": "vegetar",
