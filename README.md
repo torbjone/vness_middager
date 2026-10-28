@@ -1,6 +1,6 @@
 # Middager hos oss
 
-Liten, privat nettside med ukemeny og middagsforslag for familien.
+Liten, privat nettside med ukemeny og middagsforslag for familien Vefferstad Ness.
 Skal ligge på <https://vness.no/middager>.
 
 ## Slik henger det sammen
@@ -87,7 +87,7 @@ gamle versjonen.
 
 Første gang:
 
-1. Logg inn på domene.no → Mine sider → finn FTP-brukeren for vness.no.
+1. Logg inn på domene.no → Mine sider → finn FTP-brukeren din.
 2. `cp .env.eksempel .env` og fyll inn vert, brukernavn, passord og riktig mappe
    (ofte `/www/middager`, noen ganger `/public_html/middager`).
 3. Installer lftp én gang: `sudo apt install lftp`.
@@ -109,13 +109,6 @@ Har webhotellet SSH, kan du bruke `rsync -av --delete docs/ bruker@vness.no:/www
 
 Koden ligger på <https://github.com/torbjone/vness-middager>.
 
-Første gang (kun én gang):
-
-```bash
-git remote add origin https://github.com/torbjone/vness-middager.git
-git push -u origin main
-```
-
 Hver gang du har endret noe:
 
 ```bash
@@ -124,12 +117,6 @@ git add -A
 git commit -m "Ny oppskrift"
 git push
 ```
-
-### Gratis testside med GitHub Pages (valgfritt)
-
-På GitHub: **Settings → Pages → Source: Deploy from a branch → Branch: `main`, mappe `/docs`**.
-Siden blir da liggende på <https://torbjone.github.io/vness-middager/>, i tillegg til
-vness.no/middager. Alle lenker i `docs/` er relative, så den fungerer begge steder.
 
 ## Slik velges ukemenyen
 
