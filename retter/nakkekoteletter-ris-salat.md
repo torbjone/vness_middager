@@ -25,15 +25,15 @@ beskrivelse: Saftige stekte nakkekoteletter med ris og frisk salat.
 
 ## Slik gjør du det
 
-1. Ha 4 dl ris og 8 dl vann i en kjele med lokk. Kok opp og skru ned til lav varme (spør en voksen).
+1. Ha 4 dl ris og 8 dl vann i en kjele med lokk. Kok opp og skru ned til lav varme.
 2. La risen koke under lokk i 12 minutter. Ikke løft lokket.
-3. Krydre koteletene med salt, pepper og paprikakrydder på begge sider.
-4. Varm 1 ss olje i stekepannen på middels høy varme (spør en voksen).
-5. Stek koteletene 4–5 minutter på hver side. Kjernetemperaturen skal være 70 °C (spør en voksen).
-6. Legg koteletene på en tallerken og la dem hvile i 3 minutter.
+3. Krydre kotelettene med salt, pepper og paprikakrydder på begge sider.
+4. Varm 1 ss olje i stekepannen på middels høy varme.
+5. Stek kotelettene 4–5 minutter på hver side. Kjernetemperaturen skal være 70 °C.
+6. Legg kotelettene på en tallerken og la dem hvile i 3 minutter.
 7. Riv salaten i biter og skjær agurk og tomat i biter. Legg alt i en bolle.
 8. Bland olivenolje og sitronsaft og rør inn i salaten.
-9. Server koteletene med ris og salat.
+9. Server kotelettene med ris og salat.
 
 ## Tips
 

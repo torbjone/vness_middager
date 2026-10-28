@@ -15,6 +15,7 @@ import sys
 ROT = pathlib.Path(__file__).resolve().parent
 RETTER = ROT / "retter"
 UT = ROT / "docs" / "data" / "retter.json"
+UT_JS = ROT / "docs" / "data" / "retter.js"
 
 GYLDIG_KATEGORI = {"fisk", "kjott", "kylling", "vegetar"}
 GYLDIG_ANLEDNING = {"hverdag", "helg"}
@@ -173,7 +174,11 @@ def main() -> int:
         print("Advarsel: " + melding, file=sys.stderr)
 
     UT.parent.mkdir(parents=True, exist_ok=True)
-    UT.write_text(json.dumps(retter, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
+    data = json.dumps(retter, ensure_ascii=False, indent=1)
+    UT.write_text(data + "\n", encoding="utf-8")
+    # Samme data som vanlig skriptfil, slik at index.html ogsa virker nar den
+    # apnes rett fra disk (file://), der nettleseren blokkerer fetch.
+    UT_JS.write_text("window.RETTER = " + data + ";\n", encoding="utf-8")
     print(f"Skrev {len(retter)} retter ({antall_fisk} fiskeretter) til {UT.relative_to(ROT)}")
     return 0
 

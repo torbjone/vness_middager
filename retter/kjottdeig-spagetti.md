@@ -5,37 +5,35 @@ anledning: [hverdag]
 sesong: [hele-aret]
 tid: 30 min
 porsjoner: 5
-beskrivelse: Klassisk kjøttsaus med tomat og grønnsaker til spagetti, som alle liker.
+beskrivelse: Tomatsaus med kjøttdeig og amerikansk blanding, servert med spagetti.
 ---
 
 ## Ingredienser
 
-- 600 g kjøttdeig
-- 1 løk
-- 2 gulrøtter
-- 2 hvitløksfedd
+- 500 g kjøttdeig
 - 1 spiseskje olje
-- 2 bokser hakkede tomater (à 400 g)
-- 2 spiseskjeer tomatpuré
+- 400 g amerikansk blanding (frossen)
+- 1 boks hakkede tomater (400 g)
+- 1 boks tomatpuré (70 g)
+- 2 dl vann
 - 1 teskje tørket oregano
 - 1 teskje salt
 - Litt pepper
 - 500 g spagetti
-- Revet ost etter ønske (ca. 1 dl)
+- Revet ost til servering
 
 ## Slik gjør du det
 
-1. Vask hendene. Skrell løk og hvitløk og hakk dem smått (spør en voksen om hjelp med kniven).
-2. Skrell gulrøttene og riv dem på et fint rivjern.
-3. Varm 1 spiseskje olje i en stor panne på middels varme (spør en voksen). Stek løken i 2 minutter.
-4. Ha i kjøttdeigen og stek i 6–8 minutter. Rør og del opp klumper til kjøttet er grått og brunt hele veien (spør en voksen).
-5. Rør inn gulrot, hvitløk, tomater, tomatpuré, oregano, salt og pepper. La det småkoke på lav varme i 15 minutter. Rør av og til.
-6. Mens sausen koker: fyll en stor kjele med 3–4 liter vann og 1 spiseskje salt. Kok opp (spør en voksen).
-7. Ha spagettien i vannet. Kok i 9–11 minutter etter pakken, og rør av og til.
-8. Hell vannet av spagettien (spør en voksen).
-9. Server spagetti med kjøttsaus og dryss over revet ost.
+1. Vask hendene. Sett på en stor kjele med vann og 1 teskje salt til spagettien.
+2. Varm oljen i en stor panne eller gryte på middels høy varme.
+3. Ha i kjøttdeigen og stek den i 6–8 minutter. Del opp klumpene med en stekespade til alt er brunt.
+4. Ha i den amerikanske blandingen rett fra fryseren og stek videre i 3–4 minutter.
+5. Rør inn tomatpuré, hakkede tomater og 2 dl vann. Smak til med oregano, salt og pepper.
+6. La sausen småkoke i 10–15 minutter med lokket på gløtt. Rør av og til.
+7. Når vannet fosskoker, har du i spagettien og koker den så lenge det står på pakken, som regel 8–9 minutter.
+8. Hell av vannet i vasken, og server spagettien med saus og revet ost på toppen.
 
 ## Tips
 
-- Smak på sausen og tilsett litt mer salt om den trenger det.
-- Skjær gjerne agurk og paprika i staver som tilbehør.
+- Vi bruker ikke løk eller gulrot i denne – den amerikanske blandingen gir nok grønnsaker.
+- Blir sausen tykk, spe med litt av kokevannet fra spagettien.

@@ -11,6 +11,10 @@ const DAGER = [
 ];
 
 const MIN_FISK = 3;
+const FREDAG = DAGER.findIndex((d) => d.navn === "fredag");
+const TACO = "taco";
+const KEBAB = "kebab";
+const KEBAB_SJANSE = 0.3;
 
 const SESONGNAVN = { vinter: "Vinter", var: "Vår", sommer: "Sommer", host: "Høst" };
 
@@ -80,13 +84,38 @@ function kandidater(dag, sesong, { kunFisk = false, utenFisk = false } = {}) {
 /* ---------- ukemeny ---------- */
 
 function lagUke(rnd, sesong) {
+  const taco = retter.find((r) => r.slug === TACO);
+  const kebab = retter.find((r) => r.slug === KEBAB);
+
   for (let forsok = 0; forsok < 300; forsok++) {
     const plan = new Array(DAGER.length).fill(null);
     const brukt = new Set();
 
+    // 0) Fredag er tacodag – men blir det kebab denne uken, dropper vi tacoen.
+    const kebabUke = Boolean(kebab) && rnd() < KEBAB_SJANSE;
+    if (kebabUke) {
+      const kebabdager = bland(
+        DAGER.map((d, i) => i).filter((i) => passerDag(kebab, DAGER[i])),
+        rnd
+      );
+      if (kebabdager.length) {
+        plan[kebabdager[0]] = kebab;
+        brukt.add(kebab.slug);
+      }
+      brukt.add(TACO);
+    } else {
+      if (taco && FREDAG >= 0 && passerDag(taco, DAGER[FREDAG])) {
+        plan[FREDAG] = taco;
+        brukt.add(taco.slug);
+      }
+      brukt.add(KEBAB);
+    }
+
     // 1) Sikre minst tre fiskedager.
     const fiskedager = bland(
-      DAGER.map((d, i) => i).filter((i) => kandidater(DAGER[i], sesong, { kunFisk: true }).length),
+      DAGER.map((d, i) => i).filter(
+        (i) => !plan[i] && kandidater(DAGER[i], sesong, { kunFisk: true }).length
+      ),
       rnd
     ).slice(0, MIN_FISK);
 
@@ -127,12 +156,16 @@ function byttDag(indeks) {
   const antallFisk = uke.filter((r) => r && erFisk(r)).length;
   const maBeholdeFisk = navaerende && erFisk(navaerende) && antallFisk <= MIN_FISK;
 
+  // Taco og kebab skal ikke havne i samme uke.
+  const forbudt = new Set();
+  if (andreSlugs.has(TACO)) forbudt.add(KEBAB);
+  if (andreSlugs.has(KEBAB)) forbudt.add(TACO);
+  const ledig = (r) => !andreSlugs.has(r.slug) && !forbudt.has(r.slug) && r.slug !== navaerende?.slug;
+
   const valg =
-    bland(kandidater(dag, sesong, { kunFisk: maBeholdeFisk }), tilfeldig).find(
-      (r) => !andreSlugs.has(r.slug) && r.slug !== navaerende?.slug
-    ) ||
+    bland(kandidater(dag, sesong, { kunFisk: maBeholdeFisk }), tilfeldig).find(ledig) ||
     bland(retter.filter((r) => passerDag(r, dag) && (!maBeholdeFisk || erFisk(r))), tilfeldig).find(
-      (r) => !andreSlugs.has(r.slug) && r.slug !== navaerende?.slug
+      ledig
     );
 
   if (valg) {
@@ -143,9 +176,9 @@ function byttDag(indeks) {
 
 /* ---------- visning ---------- */
 
-function merker(rett) {
+function merker(rett, { visFisk = true } = {}) {
   const biter = [];
-  if (erFisk(rett)) biter.push('<span class="merke merke--fisk">Fisk</span>');
+  if (visFisk && erFisk(rett)) biter.push('<span class="merke merke--fisk">Fisk</span>');
   if (rett.anledning.includes("helg") && !rett.anledning.includes("hverdag")) {
     biter.push('<span class="merke">Helg</span>');
   }
@@ -167,15 +200,14 @@ function tegnUke() {
     li.innerHTML = `
       <span class="dag__navn">${dag.navn}</span>
       <button type="button" class="dag__rett" data-slug="${rett ? rett.slug : ""}">
-        ${merker(rett || { kategori: "", anledning: [] })}${rett ? rett.navn : "Ingen passende rett"}
+        ${merker(rett || { kategori: "", anledning: [] }, { visFisk: false })}${rett ? rett.navn : "Ingen passende rett"}
         <span class="dag__meta">${rett ? metatekst(rett) : ""}</span>
       </button>
       <button type="button" class="bytt" data-dag="${i}">Bytt</button>`;
     liste.appendChild(li);
   });
 
-  const antallFisk = uke.filter((r) => r && erFisk(r)).length;
-  el("fisk-status").textContent = `${antallFisk} fiskedager denne uken · trykk på en rett for oppskriften`;
+  el("fisk-status").textContent = "Trykk på en rett for oppskriften";
 }
 
 function tegnAlle(filter = "alle") {
@@ -227,20 +259,32 @@ function nyUke(fast = false) {
   tegnUke();
 }
 
+/* Rettene kommer fra data/retter.js (virker ogsa ved file://). Pa en webserver
+   henter vi heller data/retter.json, slik at nye retter vises uten mellomlagring. */
+async function lesRetter() {
+  if (location.protocol !== "file:") {
+    try {
+      const svar = await fetch("data/retter.json", { cache: "no-cache" });
+      if (svar.ok) return await svar.json();
+    } catch (e) {
+      /* faller tilbake til window.RETTER under */
+    }
+  }
+  return Array.isArray(window.RETTER) ? window.RETTER : null;
+}
+
 async function start() {
-  try {
-    const svar = await fetch("data/retter.json", { cache: "no-cache" });
-    if (!svar.ok) throw new Error(svar.status);
-    retter = await svar.json();
-  } catch (e) {
-    el("feil").textContent = "Fikk ikke lest inn rettene (data/retter.json). Kjør python3 bygg.py.";
+  retter = await lesRetter();
+  if (!retter || !retter.length) {
+    retter = [];
+    el("feil").textContent = "Fikk ikke lest inn rettene. Kjør python3 bygg.py og prøv igjen.";
     el("feil").classList.remove("skjult");
     return;
   }
 
   const sesong = sesongNa();
   el("sesong-merke").textContent = `${SESONGNAVN[sesong]} · uke ${ukenummer()}`;
-  el("uke-tekst").textContent = `Forslag til uke ${ukenummer()} – minst ${MIN_FISK} dager med fisk.`;
+  el("uke-tekst").textContent = `Forslag til uke ${ukenummer()}.`;
 
   nyUke(true);
 

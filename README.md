@@ -13,6 +13,7 @@ docs/              <- selve nettsiden (dette lastes opp)
   stil.css
   app.js
   data/retter.json <- generert, ikke rediger
+  data/retter.js   <- generert, ikke rediger
 last-opp.sh        <- bygger og laster opp til webhotellet
 .env.eksempel      <- mal for FTP-innstillingene
 ```
@@ -75,8 +76,12 @@ python3 bygg.py
 python3 -m http.server -d docs 8000
 ```
 
-Åpne så <http://localhost:8000>. (Siden må serveres over `http://` – å åpne
-`index.html` direkte fra disk blir stoppet av nettleserens sikkerhetsregler.)
+Åpne så <http://localhost:8000>.
+
+Du kan også bare dobbeltklikke på `docs/index.html`: rettene følger med i
+`docs/data/retter.js`, så siden virker også rett fra disk. Husk å kjøre
+`python3 bygg.py` etter at du har endret en oppskrift, ellers viser siden den
+gamle versjonen.
 
 ## Legge endringene ut på nett
 
@@ -130,6 +135,8 @@ vness.no/middager. Alle lenker i `docs/` er relative, så den fungerer begge ste
 
 - Uken fylles fra mandag til søndag, uten gjentakelser.
 - Fredag og lørdag får retter merket `helg`, de andre dagene retter merket `hverdag`.
+- Fredag er tacodag. Unntaket er uker der menyen foreslår kebab – da blir det ikke taco i det
+  hele tatt den uken.
 - Minst tre av dagene er fiskeretter.
 - Retter i inneværende årstid (eller `hele-aret`) foretrekkes.
 - Ukemenyen er den samme for alle i familien gjennom hele uken.

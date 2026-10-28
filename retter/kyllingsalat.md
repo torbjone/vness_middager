@@ -1,42 +1,38 @@
 ---
 navn: Kyllingsalat
 kategori: kylling
-anledning: [hverdag]
+anledning: [hverdag, helg]
 sesong: [sommer]
 tid: 30 min
 porsjoner: 5
-beskrivelse: Frisk salat med stekt kylling, agurk, tomat og en mild dressing.
+beskrivelse: Frisk salat med stekt kyllingfilet, pasta penne og ferdig dressing.
 ---
 
 ## Ingredienser
 
 - 600 g kyllingfilet
-- 1 ss olje
-- 1 ts salt
-- 1 hodesalat
-- 1 agurk
-- 300 g cherrytomater
+- 1 spiseskje olje
+- 1 teskje salt og litt pepper
+- 500 g pasta penne
+- 1 isbergsalat eller 2 poser salatblanding
+- 250 g små tomater
+- 1/2 agurk
 - 1 paprika
-- 2 dl mais (hermetisk)
-- 4 skiver brød eller 5 rundstykker til servering
-- 2 dl naturell yoghurt
-- 2 ss majones
-- 1 ss sitronsaft
-- 1/2 ts salt
+- 1 boks mais (ca. 150 g)
+- Ferdig dressing fra flaske
 
 ## Slik gjør du det
 
-1. Vask hendene og ta frem skjærebrett, kniv og en stekepanne.
-2. Skjær kyllingfilet i strimler på ca. 2 cm bredde (spør en voksen).
-3. Hell 1 ss olje i stekepannen og sett platen på middels varme (spør en voksen).
-4. Stek kyllingen i ca. 8–10 minutter. Vend av og til. Strø på 1 ts salt (spør en voksen).
-5. Del salaten i biter med hendene og legg den i en stor bolle.
-6. Skjær agurk, paprika og cherrytomater i biter. Ha alt i bollen sammen med maisen.
-7. Rør sammen yoghurt, majones, sitronsaft og 1/2 ts salt i en liten bolle.
-8. Kutt en kyllingbit i to. Den skal være hvit og ikke rosa inni (spør en voksen).
-9. Legg kyllingen på salaten, ha over dressingen og server med brød.
+1. Vask hendene. Sett på en stor kjele med vann og 1 teskje salt.
+2. Når vannet fosskoker, har du i 500 g penne og koker den så lenge det står på pakken, som regel 9–11 minutter.
+3. Hell av vannet, skyll pastaen i kaldt vann og la den renne av seg. Da blir salaten god og kald.
+4. Skjær kyllingfiletene i strimler på en egen fjøl. Vask hendene etter at du har tatt på rå kylling.
+5. Varm oljen i en panne på middels høy varme. Stek kyllingen i 8–10 minutter til den er hvit helt inn. Strø over salt og pepper.
+6. Del tomatene i to, agurken i skiver og paprikaen i strimler. Riv salaten i biter. Hell av vannet fra maisen.
+7. Bland salat, pasta, grønnsaker og mais i en stor bolle.
+8. Legg den varme kyllingen på toppen og hell over dressing rett før servering.
 
 ## Tips
 
-- Barna kan plukke grønnsakene de liker best.
-- Dressingen kan serveres ved siden av hvis noen vil ha den separat.
+- Dressingen kjøper vi ferdig, så smak deg fram til hvor mye dere vil ha.
+- Rester er god matpakke dagen etter hvis du holder dressingen for seg.

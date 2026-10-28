@@ -5,33 +5,34 @@ anledning: [hverdag]
 sesong: [host, vinter]
 tid: 25 min
 porsjoner: 5
-beskrivelse: Enkel og mild klassiker med hvit saus, poteter og gulrot.
+beskrivelse: Mild klassiker fra boks med hvit saus, poteter og gulrot.
 ---
 
 ## Ingredienser
 
-- 2 glass fiskeboller (à 500 g)
-- 1,2 kg poteter (ca. 10 mellomstore)
-- 5 gulrøtter
+- 2 bokser fiskeboller (ikke glass)
+- 1,2 kg poteter
+- 4 gulrøtter
 - 3 spiseskjeer smør
 - 3 spiseskjeer hvetemel
 - 5 dl melk
-- 1 dl av fiskebollevæsken
 - 1 teskje salt
-- Litt pepper
+- Litt pepper og litt revet muskat
+- Frisk persille eller gressløk
 
 ## Slik gjør du det
 
-1. Vask hendene. Skrell potetene og del hver potet i to eller fire biter.
-2. Legg potetene i en stor kjele og fyll på vann til de er dekket. Tilsett 1 teskje salt.
-3. Sett kjelen på platen og kok opp (spør en voksen). Kok i ca. 15 minutter til potetene er møre når du stikker i dem med en gaffel.
-4. Skrell gulrøttene og skjær dem i staver på ca. 1 cm. Legg dem i en liten kjele med vann og kok i 8 minutter (spør en voksen).
-5. Smelt 3 spiseskjeer smør i en kjele på middels varme. Rør inn 3 spiseskjeer mel og rør i 1 minutt (spør en voksen).
-6. Hell i melken litt og litt, mens du rører hele tiden, så det ikke blir klumper. La sausen koke svakt i 3 minutter til den tykner.
-7. Åpne glassene og ha fiskebollene i sausen sammen med 1 dl av væsken. Varm i 5 minutter på lav varme. Smak til med salt og pepper.
-8. Hell vannet av potetene og gulrøttene (spør en voksen). Server alt sammen.
+1. Vask hendene. Vask potetene godt med børste – vi skreller dem ikke.
+2. Del store poteter i to, legg dem i en kjele med vann og litt salt, og kok dem i 20 minutter.
+3. Skrell gulrøttene og del dem i skiver. Kok dem i egen kjele i 8–10 minutter.
+4. Åpne boksene med fiskeboller. Hell kraften i en kopp – den skal i sausen.
+5. Smelt smøret i en kjele på middels varme. Rør inn melet og la det surre i et halvt minutt.
+6. Hell i melken litt om gangen mens du rører hele tiden, så sausen blir glatt.
+7. Ha i 1 dl av kraften fra boksen, og smak til med salt, pepper og litt muskat.
+8. Legg fiskebollene i sausen og varm dem forsiktig i 4–5 minutter. Sausen skal bare så vidt putre.
+9. Server med poteter, gulrot og litt hakket persille eller gressløk på toppen.
 
 ## Tips
 
-- Hvis sausen blir for tykk, rør inn litt mer melk.
-- Server gjerne med litt revet gulrot rå ved siden av.
+- Fiskebollene er ferdig kokt fra før, så de skal bare varmes – ikke fosskoke.
+- Blir sausen for tykk, rør inn litt mer melk eller kraft.

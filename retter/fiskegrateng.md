@@ -5,38 +5,31 @@ anledning: [hverdag]
 sesong: [host, vinter]
 tid: 60 min
 porsjoner: 5
-beskrivelse: Lun fiskegrateng med mør potet, søte gulrøtter og brokkoli.
+beskrivelse: Frossen fiskegrateng fra ovnen med kokte poteter, gulrot og brokkoli.
 ---
 
 ## Ingredienser
 
-- 600 g torskefilet eller sei, tint
-- 800 g poteter
+- 1 stor frossen fiskegrateng (ca. 1 kg)
+- 1,2 kg poteter
 - 4 gulrøtter
-- 1 brokkolihode
-- 3 ss smør
-- 3 ss hvetemel
-- 5 dl melk
-- 1 ts salt
-- 1/2 ts pepper
-- 1 ss smør til former
-- 1 dl revet ost
+- 1 brokkoli
+- Salt
+- Smør til grønnsakene
 
 ## Slik gjør du det
 
-1. Slå på ovnen på 200 °C (spør en voksen).
-2. Skrell potetene og gulrøttene (spør en voksen hvis du bruker skrellekniv).
-3. Skjær potetene i terninger på ca. 2 cm og gulrøttene i skiver.
-4. Kok poteter og gulrøtter i lettsaltet vann i ca. 15 minutter (spør en voksen).
-5. Del brokkolien i små buketter og kok dem med de siste 3 minuttene (spør en voksen).
-6. Smelt 3 ss smør i en kjele. Rør inn mel og tilsett melk litt etter litt mens du rører (spør en voksen).
-7. La sausen koke i 3 minutter til den tykner. Tilsett salt og pepper.
-8. Smør en ildfast form. Legg fisken i bunnen, skåret i biter på ca. 4 cm.
-9. Hell sausen over fisken og dryss på ost.
-10. Sett formen i ovnen i 25 minutter, til gratengen er gylden (spør en voksen).
-11. Hell av vannet fra grønnsakene (spør en voksen) og server sammen med gratengen.
+1. Vask hendene og sett ovnen på temperaturen som står på gratengpakken, som regel 200 °C.
+2. Sett gratengen inn i ovnen rett fra fryseren. Den trenger 45–55 minutter – følg pakken.
+3. Vask potetene godt med børste. Vi skreller dem ikke.
+4. Del store poteter i to og legg dem i en stor kjele med vann og 1 teskje salt.
+5. Kok potetene i 20 minutter.
+6. Skrell gulrøttene og del dem i skiver. Del brokkolien i små buketter.
+7. De siste 5 minuttene har du gulrot og brokkoli oppi den samme kjelen som potetene.
+8. Hell av vannet og la grønnsakene dampe av seg i kjelen. Ha i en liten klatt smør.
+9. Sjekk at gratengen er varm helt inn i midten, og del den opp i ruter før servering.
 
 ## Tips
 
-- Fisken skal være hvit og fast når den er ferdig.
-- Bruk ovnshansker når du tar ut formen.
+- Stikk en kniv i midten av gratengen: er den varm mot leppa, er maten klar.
+- Legg gratengen på et brett eller i en langpanne i tilfelle den koker over.

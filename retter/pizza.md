@@ -3,38 +3,34 @@ navn: Pizza
 kategori: vegetar
 anledning: [helg]
 sesong: [hele-aret]
-tid: 1 time 30 min
+tid: 30 min
 porsjoner: 5
-beskrivelse: Hjemmelaget pizza med eltet deig, tomatsaus og ost, med det pålegget du vil.
+beskrivelse: Ferdige pizzabunner med tomatsaus, ost og det fyllet dere liker best.
 ---
 
 ## Ingredienser
 
-- 1 pakke tørrgjær (11 g)
-- 5 dl lunkent vann (ca. 37 °C)
-- 1 spiseskje olje
-- 1 teskje salt
-- ca. 800 g hvetemel (ca. 13 dl)
-- 1 boks pizzasaus eller hakkede tomater (ca. 400 g)
-- 1 teskje oregano
-- 400 g revet ost (ca. 8 dl)
+- 2–3 ferdige pizzabunner
+- 1 boks pizzasaus (ca. 400 g)
+- 400 g revet ost
 - 1 paprika
-- 150 g champignon
-- 1 pakke skinke eller pepperoni (valgfritt)
+- 250 g små tomater
+- 1 boks mais (ca. 150 g)
+- Skinke, pepperoni eller champignon etter smak
+- 1 teskje tørket oregano
 
 ## Slik gjør du det
 
-1. Vask hendene. Rør ut gjæren i 5 dl lunkent vann i en stor bolle. Vannet skal kjennes lunkent, ikke varmt.
-2. Bland inn olje, salt og halvparten av melet. Rør til det blir en jevn røre.
-3. Tilsett resten av melet litt og litt. Elt deigen i 8–10 minutter til den er smidig og ikke klistrer.
-4. Dekk bollen med et rent kjøkkenhåndkle. La deigen heve i 45 minutter til den er dobbelt så stor.
-5. Sett ovnen på 250 °C (spør en voksen). Del deigen i 2 deler og kjevle hver ut til en plate på stekebrett med bakepapir.
-6. Rør oregano inn i pizzasausen. Smør et tynt lag utover hver pizza, og la det være en kant rundt.
-7. Dryss over halve osten. Legg på paprika i strimler, champignon i skiver og eventuelt skinke (spør en voksen om hjelp med kniven). Dryss resten av osten over.
-8. Sett pizzaene i ovnen, én om gangen eller på hver sin rille (spør en voksen). Stek i 10–12 minutter til osten er smeltet og gyllen.
-9. Ta ut pizzaene (spør en voksen). La dem hvile 2 minutter og skjær i biter.
+1. Vask hendene og sett ovnen på temperaturen som står på pakken med pizzabunner, som regel 225 °C.
+2. Skjær paprikaen i strimler og del de små tomatene i to. Hell av vannet fra maisen.
+3. Legg pizzabunnene på stekebrett med bakepapir.
+4. Smør et tynt lag pizzasaus utover bunnene med baksiden av en skje. La det være en kant på 1 cm.
+5. Strø over halvparten av osten.
+6. Legg på fyllet dere vil ha, og strø resten av osten og litt oregano på toppen.
+7. Stek pizzaene i 10–14 minutter til osten er smeltet og kanten er gyllen.
+8. La pizzaen hvile i 2 minutter før du deler den i biter med pizzakutter.
 
 ## Tips
 
-- Brettene og ovnen er veldig varme. Bruk alltid grytekluter.
-- La alle lage sin egen halvdel med favorittpålegg.
+- Ikke legg på for mye saus og fyll, ellers blir bunnen bløt.
+- Har dere bare én ovn, stek én pizza om gangen og hold den første varm med folie over.

@@ -5,35 +5,35 @@ anledning: [hverdag, helg]
 sesong: [var, sommer]
 tid: 30 min
 porsjoner: 5
-beskrivelse: Rask wok med laks, grønnsaker og nudler i mild soyasaus.
+beskrivelse: Stekt laksefilet med wokede sukkererter og små tomater, servert med ris eller nudler.
 ---
 
 ## Ingredienser
 
-- 500 g laksefilet uten skinn
-- 250 g nudler
-- 2 gulrøtter
-- 1 paprika
+- 4 frosne laksefileter
+- 2 spiseskjeer olje
+- 1 teskje salt og litt pepper
 - 200 g sukkererter
-- 1 ss olje
-- 4 ss soyasaus
-- 1 ss honning
-- 1 ts revet ingefær
-- 1 dl vann
+- 250 g små tomater
+- 1 paprika
+- 3 spiseskjeer soyasaus
+- 1 teskje honning
+- 4 dl ris eller 400 g nudler
+- 1 sitron eller lime
 
 ## Slik gjør du det
 
-1. Kok opp vann i en kjele og kok nudlene etter pakken (spør en voksen).
-2. Skjær laksen i terninger på ca. 2 cm.
-3. Skjær gulrot og paprika i tynne strimler og del sukkerertene i to.
-4. Rør sammen soyasaus, honning, ingefær og 1 dl vann i en kopp.
-5. Varm 1 ss olje i en wok på middels høy varme (spør en voksen).
-6. Stek gulrot i 3 minutter, deretter paprika og sukkererter i 2 minutter (spør en voksen).
-7. Ha i laksen og stek i 3–4 minutter. Vend forsiktig.
-8. Hell i saucen og la det koke i 1 minutt (spør en voksen).
-9. Hell av nudlene (spør en voksen), bland dem inn og server.
+1. Ta laksefiletene ut av fryseren og la dem tine, gjerne i kaldt vann i posen i 20–30 minutter.
+2. Vask hendene. Kok ris eller nudler slik det står på pakken.
+3. Skyll sukkerertene, del de små tomatene i to og skjær paprikaen i strimler.
+4. Tørk laksefiletene og strø over salt og pepper. Vi steker dem hele – ikke i terninger.
+5. Varm 1 spiseskje olje i en stor panne på middels høy varme og legg i filetene.
+6. Stek dem i 4–5 minutter på hver side til laksen flaker seg når du stikker i den med gaffel. Sett dem til side på en varm tallerken.
+7. Ha 1 spiseskje olje i en wokpanne på høy varme og wok paprika og sukkererter i 3–4 minutter. De skal fortsatt ha litt tygg.
+8. Ha i tomatene, soyasausen og honningen, og wok videre i 1 minutt.
+9. Server grønnsakene og risen med en laksefilet på toppen, og press over litt sitron eller lime.
 
 ## Tips
 
-- Bruk mindre ingefær om noen synes det er sterkt.
-- Skyll nudlene i kaldt vann så klistrer de ikke.
+- Vi bruker ikke fløte eller kokosmelk – soya, honning og sitron er nok.
+- Grønnsakene blir best når pannen er god og varm og du rører hele tiden.

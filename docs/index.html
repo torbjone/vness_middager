@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Middager hos oss</title>
-<meta name="description" content="Ukemeny og middagsforslag for familien.">
+<meta name="description" content="Ukemeny og middagsforslag for familien Vefferstad Ness.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
@@ -15,9 +15,9 @@
 <header class="topp">
   <p class="kicker" id="sesong-merke">Ukemeny</p>
   <h1>Middager hos oss</h1>
-  <p class="ingress" id="uke-tekst">Forslag til uken – minst tre dager med fisk.</p>
+  <p class="ingress" id="uke-tekst">Forslag til ukemeny.</p>
   <div class="knapperad">
-    <button type="button" class="knapp knapp--primar" id="ny-uke">Foreslå middag</button>
+    <button type="button" class="knapp knapp--primar" id="ny-uke">Foreslå middager</button>
     <button type="button" class="knapp" id="vis-alle">Vis alle</button>
   </div>
 </header>
@@ -37,15 +37,12 @@
   <p class="feil skjult" id="feil"></p>
 </main>
 
-<footer class="bunn">
-  <p>Oppskriftene ligger som tekstfiler i <code>retter/</code>. Endre en fil, kjør <code>python3 bygg.py</code> og last opp.</p>
-</footer>
-
 <dialog id="oppskrift-dialog">
   <button type="button" class="lukk" id="lukk-dialog" aria-label="Lukk">&times;</button>
   <div id="dialog-innhold"></div>
 </dialog>
 
+<script src="data/retter.js"></script>
 <script src="app.js"></script>
 </body>
 </html>
