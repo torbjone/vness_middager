@@ -328,6 +328,19 @@ window.RETTER = [
   "tid": "40 min",
   "porsjoner": "5",
   "beskrivelse": "En enkel kjøttpai med ferdig bunn og frisk salat til.",
+  "ingredienser": [
+   "1 ferdig paideigbunn (ca. 24 cm)",
+   "500 g kjøttdeig",
+   "1 løk",
+   "1 ss olje",
+   "1 ts salt",
+   "0,5 ts pepper",
+   "1 ts tørket timian",
+   "2 dl kremfløte",
+   "1 egg",
+   "1 pose blandet salat (100 g)",
+   "1 ss dressing"
+  ],
   "oppskrift": "<h3>Ingredienser</h3>\n<ul>\n<li>1 ferdig paideigbunn (ca. 24 cm)</li>\n<li>500 g kjøttdeig</li>\n<li>1 løk</li>\n<li>1 ss olje</li>\n<li>1 ts salt</li>\n<li>0,5 ts pepper</li>\n<li>1 ts tørket timian</li>\n<li>2 dl kremfløte</li>\n<li>1 egg</li>\n<li>1 pose blandet salat (100 g)</li>\n<li>1 ss dressing</li>\n</ul>\n<h3>Slik gjør du det</h3>\n<ol>\n<li>Vask hendene.</li>\n<li>Sett ovnen på 200 grader.</li>\n<li>Skrell og hakk løken.</li>\n<li>Varm olje i en stekepanne.</li>\n<li>Stek løken på middels varme i 2 minutter.</li>\n<li>Tilsett kjøttdeigen og stek til den er gjennomstekt.</li>\n<li>Krydre med salt, pepper og timian.</li>\n<li>Ta pannen av varmen og rør inn kremfløten.</li>\n<li>Legg paideigbunnen i en paiform.</li>\n<li>Fordel kjøttfyllet jevnt i bunnen.</li>\n<li>Pisk egget lett og hell over fyllet.</li>\n<li>Stek paien i ovnen i 25 minutter.</li>\n<li>Ta paien ut av ovnen og la den avkjøles i 5 minutter.</li>\n<li>Legg salaten i en bolle.</li>\n<li>Hell dressingen over salaten og bland.</li>\n<li>Server paien med salat ved siden av.</li>\n</ol>\n<h3>Tips</h3>\n<ul>\n<li>La paien hvile litt før servering, så blir den lettere å skjære.</li>\n</ul>"
  },
  {
