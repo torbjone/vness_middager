@@ -21,6 +21,23 @@ GYLDIG_KATEGORI = {"fisk", "kjott", "kylling", "vegetar"}
 GYLDIG_ANLEDNING = {"hverdag", "helg"}
 GYLDIG_SESONG = {"hele-aret", "vinter", "var", "sommer", "host"}
 
+# Basisvarer vi alltid har i skapet – de skal ikke havne i handlelisten.
+BASISVARER = {
+    "salt", "pepper", "sort pepper", "kvernet pepper", "havsalt", "flaksalt",
+    "olje", "matolje", "olivenolje", "rapsolje", "solsikkeolje", "steikeolje",
+    "vann", "kaldt vann", "varmt vann", "kokende vann",
+    "smør", "margarin", "smør eller margarin",
+    "hvetemel", "mel", "maizena",
+    "sukker", "muskat", "muskatnøtt",
+}
+
+# Mengdeangivelse i starten av et ingredienspunkt, f.eks. «2 spiseskjeer».
+MENGDE = (
+    r"^\s*(?:ca\.?\s*)?[\d\s/.,½¼¾–-]*\s*"
+    r"(?:(?:g|kg|dl|l|ts|ss|teskje(?:er)?|spiseskje(?:er)?|kopp(?:er)?|klype(?:r)?|"
+    r"never|pose(?:r)?|boks(?:er)?|pakke(?:r)?|stk)\s+)?"
+)
+
 
 def les_frontmatter(tekst: str, filnavn: str) -> tuple[dict, str]:
     if not tekst.startswith("---"):
@@ -94,8 +111,20 @@ def md_til_html(md: str) -> str:
     return "\n".join(ut)
 
 
+def er_basisvare(ingrediens: str) -> bool:
+    """Sant for ting vi alltid har hjemme (salt, pepper, olje, vann, smør ...)."""
+    tekst = ingrediens.lower()
+    tekst = re.sub(r"\([^)]*\)", " ", tekst)
+    tekst = re.sub(r"\btil\b.*$", " ", tekst)
+    tekst = re.sub(MENGDE, " ", tekst)
+    deler = [d.strip(" .,-–") for d in re.split(r"\beller\b|\bog\b|,|/", tekst)]
+    deler = [re.sub(r"^(?:(?:litt|revet|finhakket|ekstra|evt\.?|eventuelt|kvernet)\s+)+", "", d) for d in deler]
+    deler = [d for d in deler if d]
+    return bool(deler) and all(d in BASISVARER for d in deler)
+
+
 def finn_ingredienser(md: str) -> list[str]:
-    """Henter punktlisten under overskriften «Ingredienser»."""
+    """Henter punktlisten under overskriften «Ingredienser», uten basisvarer."""
     ingredienser = []
     i_ingredienser = False
     for linje in md.splitlines():
@@ -106,7 +135,9 @@ def finn_ingredienser(md: str) -> list[str]:
         if i_ingredienser and re.match(r"^#{1,6}\s+", stripped):
             break
         if i_ingredienser and re.match(r"^[-*]\s+", stripped):
-            ingredienser.append(re.sub(r"^[-*]\s+", "", stripped))
+            vare = re.sub(r"^[-*]\s+", "", stripped)
+            if not er_basisvare(vare):
+                ingredienser.append(vare)
     return ingredienser
 
 

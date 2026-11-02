@@ -88,6 +88,10 @@ handlelista. Åpne handlelista øverst på siden for å krysse av varer, fjerne 
 rett eller tømme lista. Valgene lagres i nettleseren på enheten, også når siden
 lastes inn på nytt.
 
+Basisvarer vi alltid har hjemme tas ikke med: salt, pepper, olje, vann, smør,
+margarin, hvetemel, sukker og lignende. Lista over dem står som `BASISVARER`
+øverst i `bygg.py`, så det er enkelt å legge til eller fjerne noe der.
+
 Du kan også bare dobbeltklikke på `docs/index.html`: rettene følger med i
 `docs/data/retter.js`, så siden virker også rett fra disk. Husk å kjøre
 `python3 bygg.py` etter at du har endret en oppskrift, ellers viser siden den
