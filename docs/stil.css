@@ -89,7 +89,7 @@ main { max-width: 62rem; margin: 0 auto; }
 
 .dag {
   display: grid;
-  grid-template-columns: 7.5rem 1fr auto;
+  grid-template-columns: 7.5rem minmax(0, 1fr) auto auto;
   align-items: center;
   gap: 1rem;
   background: var(--kort);
@@ -139,6 +139,23 @@ main { max-width: 62rem; margin: 0 auto; }
 }
 
 .bytt:hover { color: var(--aksent); border-color: var(--aksent); }
+
+.handle {
+  font: inherit;
+  font-size: .8rem;
+  font-weight: 600;
+  cursor: pointer;
+  border: 1px solid var(--hav);
+  background: var(--kort);
+  color: var(--hav);
+  border-radius: 999px;
+  padding: .45rem .8rem;
+  white-space: nowrap;
+}
+
+.handle:hover, .handle--lagt-til { background: var(--hav-myk); }
+.handleliste-knapp:disabled { opacity: .55; cursor: not-allowed; box-shadow: none; }
+.handleliste-antall { display: inline-grid; place-items: center; min-width: 1.5rem; height: 1.5rem; margin-left: .25rem; padding: 0 .35rem; border-radius: 999px; background: var(--hav-myk); color: var(--hav); font-size: .8rem; }
 
 .merke {
   display: inline-block;
@@ -227,6 +244,59 @@ dialog ol li::marker { font-weight: 600; color: var(--aksent); }
 
 .dialog-meta { color: var(--dempet); font-size: .9rem; margin: 0 0 1rem; }
 
+.handleliste-dialog {
+  width: min(calc(100% - 2rem), 40rem);
+  max-height: min(92dvh, 54rem);
+  padding: 0;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+
+.handleliste__topp {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  padding: 1.5rem clamp(1.25rem, 5vw, 2.5rem) 1rem;
+  background: var(--kort);
+  border-bottom: 1px solid var(--kant);
+}
+
+.handleliste__topp .kicker { margin-bottom: .25rem; }
+.handleliste__topp h2 { margin: 0; }
+.handleliste__status { margin: .25rem 0 .75rem; color: var(--dempet); }
+.handleliste__tom, .handleliste__fjern {
+  font: inherit;
+  font-size: .85rem;
+  font-weight: 600;
+  cursor: pointer;
+  border: 1px solid var(--kant);
+  background: transparent;
+  color: var(--dempet);
+  border-radius: 999px;
+  padding: .5rem .9rem;
+  min-height: 2.75rem;
+}
+
+.handleliste__tom:hover, .handleliste__fjern:hover { color: var(--aksent); border-color: var(--aksent); }
+.handleliste__innhold { padding: .25rem clamp(1.25rem, 5vw, 2.5rem) 2rem; }
+.handleliste__tomtekst { color: var(--dempet); text-align: center; padding: 1.5rem 0; }
+.handleliste__gruppe + .handleliste__gruppe { border-top: 1px solid var(--kant); }
+.handleliste__gruppetopp { display: flex; justify-content: space-between; align-items: center; gap: .75rem; padding: 1rem 0 .35rem; }
+.handleliste__gruppetopp h3 { margin: 0; font-family: "Fraunces", Georgia, serif; font-size: 1.3rem; text-transform: none; letter-spacing: 0; color: var(--blekk); }
+.handleliste__varer { list-style: none; padding: 0; margin: 0; }
+.handleliste__vare {
+  display: flex;
+  align-items: center;
+  gap: .9rem;
+  min-height: 3.5rem;
+  padding: .6rem .25rem;
+  border-bottom: 1px solid var(--kant);
+  cursor: pointer;
+}
+.handleliste__avkryssing { width: 1.4rem; height: 1.4rem; flex: 0 0 auto; accent-color: var(--hav); }
+.handleliste__varetekst { font-size: 1rem; line-height: 1.4; }
+.handleliste__vare--valgt .handleliste__varetekst { color: var(--dempet); text-decoration: line-through; }
+
 .bunn {
   max-width: 62rem;
   margin: 4rem auto 0;
@@ -242,6 +312,9 @@ dialog ol li::marker { font-weight: 600; color: var(--aksent); }
 .skjult { display: none; }
 
 @media (max-width: 36rem) {
-  .dag { grid-template-columns: 1fr auto; }
+  .dag { grid-template-columns: 1fr auto; gap: .7rem; }
   .dag__navn { grid-column: 1 / -1; margin-bottom: -.5rem; }
+  .dag__rett { grid-column: 1 / -1; }
+  .handleliste-dialog { width: 100%; max-width: none; max-height: 100dvh; height: 100dvh; margin: 0; border-radius: 0; }
+  .handleliste__topp { padding-top: max(1.25rem, env(safe-area-inset-top)); }
 }

@@ -81,6 +81,13 @@ python3 -m http.server -d docs 8000
 
 Åpne så <http://localhost:8000>.
 
+## Handleliste
+
+Trykk på **Handleliste** ved en middag i ukemenyen for å legge ingrediensene til
+handlelista. Åpne handlelista øverst på siden for å krysse av varer, fjerne en
+rett eller tømme lista. Valgene lagres i nettleseren på enheten, også når siden
+lastes inn på nytt.
+
 Du kan også bare dobbeltklikke på `docs/index.html`: rettene følger med i
 `docs/data/retter.js`, så siden virker også rett fra disk. Husk å kjøre
 `python3 bygg.py` etter at du har endret en oppskrift, ellers viser siden den

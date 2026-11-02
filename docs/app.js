@@ -19,10 +19,12 @@ const KEBAB_SJANSE = 0.3;
 const SESONGNAVN = { vinter: "Vinter", var: "Vår", sommer: "Sommer", host: "Høst" };
 
 const el = (id) => document.getElementById(id);
+const HANDLELISTE_NOKKEL = "middager.handleliste";
 
 let retter = [];
 let uke = [];
 let tilfeldig = Math.random;
+let handleliste = lesHandleliste();
 
 /* ---------- hjelpere ---------- */
 
@@ -39,6 +41,132 @@ function ukenummer(dato = new Date()) {
   d.setUTCDate(d.getUTCDate() + 4 - (d.getUTCDay() || 7));
   const nyttar = new Date(Date.UTC(d.getUTCFullYear(), 0, 1));
   return Math.ceil(((d - nyttar) / 86400000 + 1) / 7);
+}
+
+function lesHandleliste() {
+  try {
+    const lagret = JSON.parse(localStorage.getItem(HANDLELISTE_NOKKEL));
+    if (lagret && typeof lagret === "object" && !Array.isArray(lagret)) {
+      return Object.fromEntries(
+        Object.entries(lagret)
+          .filter(([, avkrysset]) => Array.isArray(avkrysset))
+          .map(([slug, avkrysset]) => [slug, avkrysset.map(Boolean)])
+      );
+    }
+  } catch (e) {
+    /* localStorage kan være utilgjengelig, for eksempel i privat modus. */
+  }
+  return {};
+}
+
+function lagreHandleliste() {
+  try {
+    localStorage.setItem(HANDLELISTE_NOKKEL, JSON.stringify(handleliste));
+  } catch (e) {
+    /* Handlelista virker videre i minnet selv om den ikke kan lagres. */
+  }
+}
+
+function normaliserHandleliste() {
+  const normalisert = {};
+  for (const rett of retter) {
+    const avkrysset = handleliste[rett.slug];
+    if (!Array.isArray(avkrysset) || !rett.ingredienser?.length) continue;
+    normalisert[rett.slug] = rett.ingredienser.map((_, i) => Boolean(avkrysset[i]));
+  }
+  handleliste = normalisert;
+  lagreHandleliste();
+}
+
+function oppdaterHandlelisteTeller() {
+  const varerIgjen = retter.reduce(
+    (sum, rett) =>
+      sum +
+      (handleliste[rett.slug] || []).filter((avkrysset) => !avkrysset).length,
+    0
+  );
+  const tom = Object.keys(handleliste).length === 0;
+  const knapp = el("vis-handleliste");
+  el("handleliste-antall").textContent = varerIgjen;
+  el("handleliste-status").textContent = `${varerIgjen} ${varerIgjen === 1 ? "vare" : "varer"} igjen`;
+  knapp.disabled = tom;
+  knapp.setAttribute(
+    "aria-label",
+    `Handleliste, ${varerIgjen} ${varerIgjen === 1 ? "vare" : "varer"} igjen`
+  );
+}
+
+function tegnHandleliste() {
+  const innhold = el("handleliste-innhold");
+  innhold.replaceChildren();
+  oppdaterHandlelisteTeller();
+
+  const valgteRetter = retter.filter((rett) => Array.isArray(handleliste[rett.slug]));
+  if (!valgteRetter.length) {
+    const tom = document.createElement("p");
+    tom.className = "handleliste__tomtekst";
+    tom.textContent = "Handlelista er tom. Legg til retter fra ukemenyen.";
+    innhold.appendChild(tom);
+    return;
+  }
+
+  for (const rett of valgteRetter) {
+    const gruppe = document.createElement("section");
+    gruppe.className = "handleliste__gruppe";
+    const topp = document.createElement("div");
+    topp.className = "handleliste__gruppetopp";
+    const navn = document.createElement("h3");
+    navn.textContent = rett.navn;
+    const fjern = document.createElement("button");
+    fjern.type = "button";
+    fjern.className = "handleliste__fjern";
+    fjern.dataset.fjernHandleliste = rett.slug;
+    fjern.textContent = "Fjern rett";
+    topp.append(navn, fjern);
+
+    const varer = document.createElement("ul");
+    varer.className = "handleliste__varer";
+    rett.ingredienser.forEach((vare, i) => {
+      const rad = document.createElement("li");
+      const etikett = document.createElement("label");
+      etikett.className = "handleliste__vare";
+      if (handleliste[rett.slug][i]) etikett.classList.add("handleliste__vare--valgt");
+      const avkryssing = document.createElement("input");
+      avkryssing.type = "checkbox";
+      avkryssing.className = "handleliste__avkryssing";
+      avkryssing.dataset.handlelisteSlug = rett.slug;
+      avkryssing.dataset.handlelisteIndeks = i;
+      avkryssing.checked = handleliste[rett.slug][i];
+      const tekst = document.createElement("span");
+      tekst.className = "handleliste__varetekst";
+      tekst.textContent = vare;
+      etikett.append(avkryssing, tekst);
+      rad.appendChild(etikett);
+      varer.appendChild(rad);
+    });
+    gruppe.append(topp, varer);
+    innhold.appendChild(gruppe);
+  }
+}
+
+function leggTilIHandleliste(slug) {
+  const rett = retter.find((r) => r.slug === slug);
+  if (!rett || !rett.ingredienser?.length) return;
+  if (handleliste[slug]) {
+    fjernFraHandleliste(slug);
+    return;
+  }
+  handleliste[slug] = rett.ingredienser.map(() => false);
+  lagreHandleliste();
+  tegnUke();
+  tegnHandleliste();
+}
+
+function fjernFraHandleliste(slug) {
+  delete handleliste[slug];
+  lagreHandleliste();
+  tegnUke();
+  tegnHandleliste();
 }
 
 /* Fast «tilfeldighet» per uke, slik at alle i familien ser samme ukemeny. */
@@ -197,12 +325,17 @@ function tegnUke() {
     const dag = DAGER[i];
     const li = document.createElement("li");
     li.className = "dag" + (dag.anledning === "helg" ? " dag--helg" : "");
+    const lagtTil = rett && Boolean(handleliste[rett.slug]);
+    const handleknapp = rett?.ingredienser?.length
+      ? `<button type="button" class="handle${lagtTil ? " handle--lagt-til" : ""}" data-handle="${rett.slug}" aria-pressed="${lagtTil}" aria-label="${lagtTil ? "Fjern" : "Legg til"} ${rett.navn} ${lagtTil ? "fra" : "i"} handlelista">${lagtTil ? "✓ Lagt til" : "＋ Handleliste"}</button>`
+      : "";
     li.innerHTML = `
       <span class="dag__navn">${dag.navn}</span>
       <button type="button" class="dag__rett" data-slug="${rett ? rett.slug : ""}">
         ${merker(rett || { kategori: "", anledning: [] }, { visFisk: false })}${rett ? rett.navn : "Ingen passende rett"}
         <span class="dag__meta">${rett ? metatekst(rett) : ""}</span>
       </button>
+      ${handleknapp}
       <button type="button" class="bytt" data-dag="${i}">Bytt</button>`;
     liste.appendChild(li);
   });
@@ -287,6 +420,9 @@ async function start() {
   el("uke-tekst").textContent = `Forslag til uke ${ukenummer()}.`;
 
   nyUke(true);
+  normaliserHandleliste();
+  tegnUke();
+  tegnHandleliste();
 
   const filtre = [
     ["alle", "Alle"],
@@ -308,6 +444,8 @@ async function start() {
 
   el("ny-uke").addEventListener("click", () => nyUke(false));
 
+  el("vis-handleliste").addEventListener("click", () => el("handleliste-dialog").showModal());
+
   el("vis-alle").addEventListener("click", () => {
     const seksjon = el("alle");
     const skjult = seksjon.classList.toggle("skjult");
@@ -325,13 +463,39 @@ async function start() {
   document.addEventListener("click", (e) => {
     const bytt = e.target.closest(".bytt");
     if (bytt) return byttDag(Number(bytt.dataset.dag));
+    const handle = e.target.closest(".handle");
+    if (handle) return leggTilIHandleliste(handle.dataset.handle);
+    const fjern = e.target.closest("[data-fjern-handleliste]");
+    if (fjern) return fjernFraHandleliste(fjern.dataset.fjernHandleliste);
+    if (e.target.closest("#tom-handleliste")) {
+      handleliste = {};
+      lagreHandleliste();
+      tegnUke();
+      return tegnHandleliste();
+    }
     const rett = e.target.closest("[data-slug]");
     if (rett && rett.dataset.slug) visOppskrift(rett.dataset.slug);
+  });
+
+  el("handleliste-innhold").addEventListener("change", (e) => {
+    const avkryssing = e.target.closest(".handleliste__avkryssing");
+    if (!avkryssing) return;
+    const slug = avkryssing.dataset.handlelisteSlug;
+    const indeks = Number(avkryssing.dataset.handlelisteIndeks);
+    if (!handleliste[slug]) return;
+    handleliste[slug][indeks] = avkryssing.checked;
+    avkryssing.closest(".handleliste__vare").classList.toggle("handleliste__vare--valgt", avkryssing.checked);
+    lagreHandleliste();
+    oppdaterHandlelisteTeller();
   });
 
   el("lukk-dialog").addEventListener("click", () => el("oppskrift-dialog").close());
   el("oppskrift-dialog").addEventListener("click", (e) => {
     if (e.target.id === "oppskrift-dialog") el("oppskrift-dialog").close();
+  });
+  el("lukk-handleliste").addEventListener("click", () => el("handleliste-dialog").close());
+  el("handleliste-dialog").addEventListener("click", (e) => {
+    if (e.target.id === "handleliste-dialog") el("handleliste-dialog").close();
   });
 }
 

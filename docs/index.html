@@ -19,6 +19,9 @@
   <div class="knapperad">
     <button type="button" class="knapp knapp--primar" id="ny-uke">Foreslå middager</button>
     <button type="button" class="knapp" id="vis-alle">Vis alle</button>
+    <button type="button" class="knapp handleliste-knapp" id="vis-handleliste" disabled>
+      Handleliste <span class="handleliste-antall" id="handleliste-antall">0</span>
+    </button>
   </div>
 </header>
 
@@ -40,6 +43,17 @@
 <dialog id="oppskrift-dialog">
   <button type="button" class="lukk" id="lukk-dialog" aria-label="Lukk">&times;</button>
   <div id="dialog-innhold"></div>
+</dialog>
+
+<dialog id="handleliste-dialog" class="handleliste-dialog" aria-labelledby="handleliste-tittel">
+  <header class="handleliste__topp">
+    <button type="button" class="lukk" id="lukk-handleliste" aria-label="Lukk handlelista">&times;</button>
+    <p class="kicker">På handletur</p>
+    <h2 id="handleliste-tittel">Handleliste</h2>
+    <p class="handleliste__status" id="handleliste-status">0 varer igjen</p>
+    <button type="button" class="handleliste__tom" id="tom-handleliste">Tøm handlelista</button>
+  </header>
+  <div class="handleliste__innhold" id="handleliste-innhold"></div>
 </dialog>
 
 <script src="data/retter.js"></script>

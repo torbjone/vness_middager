@@ -94,6 +94,22 @@ def md_til_html(md: str) -> str:
     return "\n".join(ut)
 
 
+def finn_ingredienser(md: str) -> list[str]:
+    """Henter punktlisten under overskriften «Ingredienser»."""
+    ingredienser = []
+    i_ingredienser = False
+    for linje in md.splitlines():
+        stripped = linje.strip()
+        if re.fullmatch(r"##\s+Ingredienser\s*", stripped, re.IGNORECASE):
+            i_ingredienser = True
+            continue
+        if i_ingredienser and re.match(r"^#{1,6}\s+", stripped):
+            break
+        if i_ingredienser and re.match(r"^[-*]\s+", stripped):
+            ingredienser.append(re.sub(r"^[-*]\s+", "", stripped))
+    return ingredienser
+
+
 def sjekk_ukemeny(retter: list[dict]) -> list[str]:
     """Sjekker at hver sesong har nok retter til en uke med minst tre fiskedager.
 
@@ -159,6 +175,7 @@ def main() -> int:
                 "tid": felt.get("tid", ""),
                 "porsjoner": felt.get("porsjoner", ""),
                 "beskrivelse": felt.get("beskrivelse", ""),
+                "ingredienser": finn_ingredienser(brodtekst),
                 "oppskrift": md_til_html(brodtekst),
             }
         )
