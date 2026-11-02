@@ -121,6 +121,20 @@ git commit -m "Ny oppskrift"
 git push
 ```
 
+## Publisering når en pull request godtas
+
+Når en pull request blir slått sammen (godtatt) inn i `main`, starter
+`.github/workflows/publiser.yml` automatisk. Den:
+
+- kjører `python3 bygg.py`,
+- committer `docs/` hvis bygget ga endringer,
+- speiler `docs/` opp til vness.no via FTP (samme måte som `last-opp.sh`),
+- kommenterer i pull requesten når siden er ute, eller hvis noe gikk galt.
+
+Du kan også kjøre den for hånd under **Actions → Publiser når en pull request er
+godtatt → Run workflow**. Den bruker de samme secretene som de andre flytene
+(`FTP_VERT`, `FTP_BRUKER`, `FTP_PASSORD` og eventuelt `FJERNMAPPE`).
+
 ## Foreslå en ny rett (automatisk flyt)
 
 Andre kan foreslå middager uten å kunne noe om kode:
